@@ -1,10 +1,12 @@
 class Maca extends Produto {
- 
-	public Maca() {
-        super(1.10,"Maçã");
+	public Maca ( ) {
+        super(1.10,"MaÃ§a");
     }
+
 	@Override
-	public double getPreco() {
-	 return this.getPrecoUnitario()*this.getQtde();	
+	public double getPreco ( ) {
+	 	return this.getPrecoUnitario ( ) * this.getQtde ( );
 	}
 }
+
+// OK

@@ -1,26 +1,30 @@
-
 abstract class Produto {
-	private int qtde;	
+	private int    qtde;
 	private String nome;
 	private double precoUnitario;
 	
-	public abstract double getPreco();
+	public abstract double getPreco ( );
     
-	Produto(double u,String n){
+	Produto (double u, String n) {
         precoUnitario = u;
-        nome = n;
+        nome          = n;
     }
-	public int getQtde() {
+
+	public int getQtde ( ) {
         return qtde;
     }
-	public double getPrecoUnitario() {
+
+	public double getPrecoUnitario ( ) {
         return precoUnitario;
     }
-	public String getNome() {
+
+	public String getNome ( ) {
         return nome;
     }
+
 	public void setQtde (int quantidade) {
     	 qtde=quantidade;
     }
-    
 }
+
+// OK

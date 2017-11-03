@@ -1,11 +1,12 @@
-
 public class Morango extends Produto {
-
-	public Morango() {
-        super(7.10,"Morango");
+	public Morango ( ) {
+        super (7.10,"Morango");
     }
+
 	@Override
-	public double getPreco() {
-	 return this.getPrecoUnitario()*this.getQtde();	
+	public double getPreco ( ) {
+	 	return this.getPrecoUnitario ( ) * this.getQtde ( );
 	}
 }
+
+// OK

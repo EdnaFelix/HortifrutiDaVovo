@@ -1,162 +1,110 @@
 import java.util.Scanner;
+
 public class Hortifruti {
-		public static void main(String[]args){
-			int opcao=0;
-			@SuppressWarnings("resource")
-			Scanner input= new Scanner (System.in);
-			Cesta cestaDeProdutos = new Cesta();
-			Hortifruti hortifruti = new Hortifruti();
-			do{
-				System.out.println(hortifruti.imprimirCabecalhoMenuPrincipal());
-				System.out.print("digite a opÁ„o desejada: ");
-				opcao=input.nextInt();
+		public static void main (String[ ] args) {
+			int opcao;
+
+            @SuppressWarnings("resource")
+			Scanner    input           = new Scanner (System.in);
+			Cesta      cestaDeProdutos = new Cesta ( );
+			Hortifruti hortifruti      = new Hortifruti ( );
+
+			do {
+				System.out.println (hortifruti.imprimirCabecalhoMenuPrincipal ( ));
+				System.out.print ("Digite a op√ß√£o desejada: ");
+				opcao = input.nextInt ( );
 				
 				switch (opcao) {
 					case 1:
-						System.out.println(hortifruti.imprimirCabecalhoSubMenu());
-						System.out.println("escolha uma das frutas:");
-						int opcaoDeFruta = input.nextInt();
+						System.out.println (hortifruti.imprimirCabecalhoSubMenu ( ));
+						System.out.println ("Escolha uma das frutas: ");
+						int opcaoDeFruta = input.nextInt ( );
 						
-						if(hortifruti.comprarFrutas(opcaoDeFruta, cestaDeProdutos)==false)
-						{
-							System.out.println("a cesta de produtos encontra-se cheia");
+						if (! hortifruti.comprarFrutas(opcaoDeFruta, cestaDeProdutos)) {
+							System.out.println("A cesta de produtos encontra-se cheia!");
 						}
-						else
-						{
-							System.out.println("produto(s) inserido(s) com sucesso");
+						else {
+							System.out.println ("Produto(s) inserido(s) com sucesso!");
 						}
+
 						break;
 					case 2: 
-						cestaDeProdutos.listarCesta();
-						System.out.println("Total da Cesta: "+cestaDeProdutos.calcularTotal()+"\n\n");
+						cestaDeProdutos.listarCesta ( );
+						System.out.println ("Total da Cesta: "+cestaDeProdutos.calcularTotal ( )+"\n\n");
 						break;
 					case 3: 
-						cestaDeProdutos.limparCesta();
+						cestaDeProdutos.limparCesta ( );
 						break;
 					case 4: 
 						break;
 					default: 
-						System.out.println("\nopÁ„o inv·lida");
+						System.out.println ("\nOp√ß√£o inv√°lida!");
 					break;
 				}	
-			}while(opcao!=4);
+			} while (opcao != 4);
 		}
 		
-		private String imprimirCabecalhoSubMenu(){
-			return ("Frutas disponÌveis\n\n1-banana\n2-pera\n3-maÁ„\n4-uva\n5-morango\n6-lim„o\n7-mam„o");
+		private String imprimirCabecalhoSubMenu ( ) {
+			return (
+				"Frutas dispon√≠veis:\n\n" +
+				"1 - banana\n" +
+				"2 - pera\n" +
+				"3 - ma√ß√£\n" +
+				"4 - uva\n" +
+				"5 - morango\n" +
+				"6 - lim√£o\n" +
+				"7 - mam√£o"
+			);
 		}
 		
-		private String imprimirCabecalhoMenuPrincipal() {
-			return ("***Menu de OpÁıes do Hortifruti***\n\n1-Colocar produto na cesta\n2-Mostrar conteudo da cesta\n3-Limpar cesta\n4-Sair\n");
+		private String imprimirCabecalhoMenuPrincipal ( ) {
+			return (
+				"***Menu de Op√ß√µes do Hortifruti***\n\n" +
+				"1 - Colocar produto na cesta\n" +
+				"2 - Mostrar conteudo da cesta\n" +
+				"3 - Limpar cesta\n" +
+				"4 - Sair\n"
+			);
 		}
 		
-		private boolean comprarFrutas(int opc, Cesta cestaDeProdutos ){
+		private boolean comprarFrutas (int opc, Cesta cestaDeProdutos ) {
 			@SuppressWarnings("resource")
-			Scanner input= new Scanner (System.in);
+			Scanner input = new Scanner (System.in);
 			
 			int quantidade;
 			
 			switch (opc) {
-			 
-			 case 1:
-				 
-				 System.out.println("digite a quantidade do produto escolhido");
-				 quantidade=input.nextInt();
-				 if(quantidade>0) {
-					 Banana banana = new Banana();
-					 banana.setQtde(quantidade);
-					 return(cestaDeProdutos.adicionarItem(banana));
-				 }
-				 else 
-				 { 
-					System.out.println("quantidade invalida");
-				 	break;
-				 }
-			 case 2:
-				 System.out.println("digite a quantidade do produto escolhido");
-				 quantidade=input.nextInt();
-				 if(quantidade>0) {
-					 Pera pera = new Pera();
-					 pera.setQtde(quantidade);
-					 return(cestaDeProdutos.adicionarItem(pera));
-				 }
-				 else 
-				 { 
-					 System.out.println("quantidade invalida");
-					 break;
-				 }
-			 case 3:
-				 System.out.println("digite a quantidade do produto escolhido");
-				 quantidade=input.nextInt();
-				 if(quantidade>0) {
-					 Maca maca = new Maca();
-					 maca.setQtde(quantidade);
-					 return(cestaDeProdutos.adicionarItem(maca)); 
-				 }else 
-				 { 
-					 System.out.println("quantidade invalida");
-					 break;
-				 }
-			 case 4:
-				 System.out.println("digite a quantidade do produto escolhido");
-				 quantidade=input.nextInt();
-				 
-				 if(quantidade>0) {
-					 Uva uva = new Uva();
-					 uva.setQtde(quantidade);
-					 return(cestaDeProdutos.adicionarItem(uva));
-				 }
-				 else 
-				 { 
-					 System.out.println("quantidade invalida");
-					 break;
-				 }
-			 case 5:
-				 System.out.println("digite a quantidade do produto escolhido");
-				 quantidade=input.nextInt();
-				 
-				 if(quantidade>0) {
-					 Morango morango = new Morango();
-					 morango.setQtde(quantidade);
-					 return(cestaDeProdutos.adicionarItem(morango));
-				 }
-				 else 
-				 { 
-					 System.out.println("quantidade invalida");
-					 break;
-				 }
-			 case 6:
-				 System.out.println("digite a quantidade do produto escolhido");
-				 quantidade=input.nextInt();
-				 if(quantidade>0) {
-					 Limao limao = new Limao();
-					 limao.setQtde(quantidade);
-					 return(cestaDeProdutos.adicionarItem(limao));
-				 }
-				 else 
-				 { 
-					 System.out.println("quantidade invalida");
-					 break;
-				 }
-			 case 7:
-				 
-				System.out.println("digite a quantidade do produto escolhido");
-				quantidade=input.nextInt();
-				
-				if(quantidade>0) {
-					 Mamao mamao = new Mamao();
-					 mamao.setQtde(quantidade);
-					 return(cestaDeProdutos.adicionarItem(mamao));
-				 }
-				 else 
-				 { 
-					 System.out.println("quantidade invalida");
-					 break;
-				}
-			 default: 
-					System.out.println("opÁ„o inv·lida");
-				break;
+			    case 1:  return inserirProduto (Banana.class,  input, cestaDeProdutos);
+			    case 2:  return inserirProduto (Pera.class,    input, cestaDeProdutos);
+			    case 3:  return inserirProduto (Maca.class,    input, cestaDeProdutos);
+			    case 4:  return inserirProduto (Uva.class,     input, cestaDeProdutos);
+			    case 5:  return inserirProduto (Morango.class, input, cestaDeProdutos);
+			    case 6:  return inserirProduto (Limao.class,   input, cestaDeProdutos);
+			    case 7:  return inserirProduto (Mamao.class,   input, cestaDeProdutos);
+			    default: System.out.println ("Op√ß√£o inv√°lida!");
 			}
 			return true;
-		}
+	    }
+
+    private boolean inserirProduto (Class<? extends Produto> tipo, Scanner input, Cesta cestaDeProdutos) {
+        try {
+            System.out.println ("Digite a quantidade do produto escolhido!");
+            int quantidade=input.nextInt();
+
+            if(quantidade>0) {
+                Produto produto = tipo.newInstance ( );
+                produto.setQtde (quantidade);
+                return (cestaDeProdutos.adicionarItem (produto));
+            }
+            else {
+                System.out.println ("Quantidade inv√°lida!");
+            }
+        } catch (Exception e) {
+            e.printStackTrace ( );
+        }
+
+        return true;
+    }
 }		
+
+// OK
