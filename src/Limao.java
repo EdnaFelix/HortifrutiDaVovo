@@ -1,12 +1,12 @@
-public class Limao extends Produto{
+public class Limao extends Produto {
+	public Limao ( ) {
+        super (4.10,"Limão");
+    }
 
-	private final double preco=20;
-	
-	public Limao(String nome) {
-		this.nome=nome;
-	}
-
-	public double getPreco() {
-		return preco;
+	@Override
+	public double getPreco ( ) {
+	    return this.getPrecoUnitario ( ) * this.getQtde ( );
 	}
 }
+
+// OK

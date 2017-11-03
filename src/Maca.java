@@ -1,14 +1,12 @@
-
 class Maca extends Produto {
-
-private final double preco=10;
-public Maca(String nome) {
-	this.nome=nome;
-}
+	public Maca ( ) {
+        super(1.10,"Maça");
+    }
 
 	@Override
-	public double getPreco() {
-		return preco;
+	public double getPreco ( ) {
+	 	return this.getPrecoUnitario ( ) * this.getQtde ( );
 	}
-
 }
+
+// OK
