@@ -1,14 +1,11 @@
 
 public class Morango extends Produto {
 
-private final double preco=15;
-public Morango(String nome) {
-	this.nome=nome;
-}
-	
+	public Morango() {
+        super(7.10,"Morango");
+    }
 	@Override
 	public double getPreco() {
-		return preco;
+	 return this.getPrecoUnitario()*this.getQtde();	
 	}
-
 }

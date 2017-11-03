@@ -1,14 +1,11 @@
 
 public class Uva extends Produto{
 
-private final double preco=19;
-public Uva(String nome) {
-	this.nome=nome;
-}
-
-	
+	public Uva() {
+        super(2.10, "Uva");
+    }
 	@Override
 	public double getPreco() {
-		return preco;
+	 return this.getPrecoUnitario()*this.getQtde();	
 	}
 }

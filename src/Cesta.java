@@ -19,17 +19,27 @@ public class Cesta {
 	 
 	 for(int i=0;i<quantProdutos;i++)
 	 {
-		 totalPrecos +=arrayProdutos[i].getPreco() * arrayProdutos[i].qtde; 
+		 totalPrecos +=arrayProdutos[i].getPreco(); 
 	 }
 	 
 	 return totalPrecos;
  }
  public void listarCesta() {
-	 for(int i=0;i<quantProdutos;i++) {
-		 System.out.println(arrayProdutos[i].nome+"- quantidade:"+arrayProdutos[i].qtde+" preço:"+arrayProdutos[i].getPreco());
+	 if(quantProdutos == 0){
+         System.out.println("Nenhum produto na cesta!");
+     }
+	 else
+     {
+	    for(int i=0;i<quantProdutos;i++) {
+	    	System.out.println(arrayProdutos[i].getNome() + "- Quantidade: " + arrayProdutos[i].getQtde() + " Preço Unitario: " + arrayProdutos[i].getPrecoUnitario() + " R$");
+
+	    }
 	 }
  }
  public void limparCesta(){
+	 for(int i=0; i<quantProdutos; i++){
+         arrayProdutos[i] = null;
+     }
 	 quantProdutos=0;
  }
 }

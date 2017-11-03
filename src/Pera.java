@@ -1,14 +1,11 @@
 
 public class Pera extends Produto {
 
-private final double preco=12.5;
-public Pera(String nome) {
-	this.nome=nome;
-}
-
+	public Pera() {
+        super(10.50, "Pêra");
+    }
 	@Override
 	public double getPreco() {
-		return preco;
+	 return this.getPrecoUnitario()*this.getQtde();	
 	}
-
 }
